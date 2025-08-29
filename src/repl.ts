@@ -26,9 +26,10 @@ export async function startREPL() {
             newState.rl.prompt();
             return;
         }
+        //console.log(refined);
         const cmd = newState.commands[refined[0]];
         if (cmd !== null) {
-            await cmd.callback(newState);
+            await cmd.callback(newState, refined[1]);
             } else {
                 console.log("Unknown command");
             }

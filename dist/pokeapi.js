@@ -45,10 +45,19 @@ export class PokeAPI {
     ;
     async fetchLocation(locationName) {
         try {
-            const location = await fetch(PokeAPI.baseURL + "/" + locationName + "/", {
-                method: "GET",
-            });
-            return location.json();
+            const query = PokeAPI.baseURL + "/location-area/" + locationName + "/";
+            const cachedResult = this.cache.get(query);
+            if (cachedResult) {
+                return cachedResult;
+            }
+            else {
+                const location = await fetch(query, {
+                    method: "GET",
+                });
+                const locationJSON = location.json();
+                this.cache.add(query, locationJSON);
+                return locationJSON;
+            }
         }
         catch {
             throw new Error();
