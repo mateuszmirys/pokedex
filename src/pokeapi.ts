@@ -118,11 +118,27 @@ export type Pokemon = {
     height: number,
     order: number,
     weight: number,
-    stats: Stat[]
+    stats: Stat[],
+    types: PokeTypes[]
 };
 
 export type Stat = {
     base_stat: number,
     effort: number,
-    stat: string[]
+    stat: StatNameURL
+}
+
+export type StatNameURL = {
+    name: string,
+    url: string
+}
+
+export type PokeTypes = {
+    slot: number,
+    type: TypeNameURL,
+}
+
+export type TypeNameURL = {
+    name: string,
+    url: string
 }

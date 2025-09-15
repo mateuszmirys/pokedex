@@ -19,8 +19,8 @@ export async function catchPokemon(state, pokemonName) {
                 console.log(`${name} escaped!`);
             }
         }
-        catch (error) {
-            console.log("Error occured:" + error);
+        catch {
+            console.log("Error occured: Pokemon not found");
         }
     }
 }
