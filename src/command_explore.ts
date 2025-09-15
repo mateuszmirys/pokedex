@@ -1,6 +1,6 @@
 import type { State } from './state.js';
 import { PokeAPI, Pokemon } from './pokeapi.js';
-import util from 'node:util';
+//import util from 'node:util';
 
 export async function explore(state: State, locationName: string): Promise<void> {
     if (locationName === undefined) {

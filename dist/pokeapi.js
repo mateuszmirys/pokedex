@@ -63,5 +63,29 @@ export class PokeAPI {
             throw new Error();
         }
     }
+    async fetchPokemon(pokemonName) {
+        try {
+            const query = PokeAPI.baseURL + "/pokemon/" + pokemonName + "/";
+            const cachedResult = this.cache.get(query);
+            if (cachedResult) {
+                return cachedResult;
+            }
+            else {
+                const pokemon = await fetch(query, {
+                    method: "GET",
+                });
+                if (!pokemon.ok) {
+                    throw new Error("Response not successful:" + pokemon.status);
+                }
+                const pokemonJSON = pokemon.json();
+                this.cache.add(query, pokemonJSON);
+                return pokemonJSON;
+            }
+        }
+        catch {
+            throw new Error();
+        }
+    }
+    ;
 }
 ;

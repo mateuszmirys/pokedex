@@ -9,9 +9,10 @@ export function initState() {
     });
     const commands = getCommands();
     const pokeapi = new PokeAPI;
+    const pokedex = {};
     let nextLocationsURL = null;
     let prevLocationsURL = null;
-    const newState = { rl, commands, pokeapi, nextLocationsURL, prevLocationsURL };
+    const newState = { rl, commands, pokeapi, nextLocationsURL, prevLocationsURL, pokedex };
     return newState;
 }
 ;

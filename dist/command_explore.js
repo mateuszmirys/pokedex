@@ -1,3 +1,4 @@
+//import util from 'node:util';
 export async function explore(state, locationName) {
     if (locationName === undefined) {
         console.log("You must type location name or ID");
